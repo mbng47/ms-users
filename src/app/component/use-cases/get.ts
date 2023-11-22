@@ -10,7 +10,6 @@ export default function createGet({
     logger.info(`[USE-CASE][GET] Reading from db - START!`);
     Object.keys(params).forEach(key => params[key] === undefined && delete params[key])
 
-    console.log(params)
     if (Object.values(params).length) {
       const userFactory = makeInputObj({ params });
 
@@ -23,7 +22,6 @@ export default function createGet({
       Object.keys(params).forEach(key => params[key] === undefined && delete params[key])
     }
     
-    console.log(params)
     // 'and' query
     const dbResults = await findDocuments({ query: params, dbConfig });
 

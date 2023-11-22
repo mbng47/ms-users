@@ -13,5 +13,5 @@ const findDocuments = ({ query, dbConfig }) => makeFindDocuments({ query, ...dbC
 export {
   findDocuments,
   insertDocument,
-  upsertDocument
+  updateDocument
 }

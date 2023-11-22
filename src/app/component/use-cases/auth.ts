@@ -26,8 +26,10 @@ export default function createAuth({
         // 'or' query
         const checkDuplicate = await findDocuments({
             query: { 
-                usernamePasswordHash: user.usernamePasswordHash}, dbConfig 
+                usernamePasswordHash: user.usernamePasswordHash}, dbConfig
             })
+
+            console.log(checkDuplicate);
         
     
         logger.info('[POST][USE-CASE] Inserting object process - DONE!');

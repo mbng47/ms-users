@@ -26,6 +26,7 @@ const registerUserEP = async (req, res) => {
 
 const authUserEP = async (req, res) => {
   try { 
+    // console.log(req.body)
     let results = await auth({ params: req.body });
     res.json({ err: 0, data: results });
   } catch (err) {
