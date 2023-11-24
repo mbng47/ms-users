@@ -12,6 +12,8 @@ export default function createAuth({
       dbConfig,
       errorMsgs
     }){
+
+      try{
       let user;
         logger.info('[POST][USE-CASE] Inserting object process - START!');
         const userFactory = makeInputObj({ params });
@@ -30,6 +32,9 @@ export default function createAuth({
             })
 
             console.log(checkDuplicate);
+            if(checkDuplicate.length == 0){
+              throw('Invalid user or pass');
+            }
         
     
         logger.info('[POST][USE-CASE] Inserting object process - DONE!');
@@ -37,5 +42,9 @@ export default function createAuth({
         const results = get({ params: { username: user.username }});
   
         return results;
+          }
+          catch (err) {
+            throw new Error(err);
+          }
       }
   }

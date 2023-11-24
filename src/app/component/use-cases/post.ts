@@ -27,6 +27,8 @@ export default function createPost({
         created: userFactory.created(),
         modified: userFactory.modified()
       }
+
+      console.log("Params: ", params);
       
       // 'or' query
       let query = { $or: [{username: user.username}, { email: user.email }] }
